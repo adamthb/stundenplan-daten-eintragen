@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_11j8ywm" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_Zeit1" name="Zeitkonflikt">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="InputClause_0pmxwda" label="Pfister">
+        <inputExpression id="LiteralExpression_1nut3so" typeRef="string">
+          <text>pfister_wunschfrei</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0729ano">
+          <text>"pfister_montag","pfister_dienstag","pfister_mittwoch","pfister_donnerstag","pfister_freitag"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1kjw3f3" label="Wikarski">
+        <inputExpression id="LiteralExpression_09hr02u" typeRef="string">
+          <text>wikarski_wunschfrei</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_16p3945">
+          <text>"wikarski_montag","wikarski_dienstag","wikarski_mittwoch","wikarski_donnerstag","wikarski_freitag"</text>
+        </inputValues>
+      </input>
+      <input id="input_1" label="Franz">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>franz_wunschfrei</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_067nlnt">
+          <text>"franz_montag","franz_dienstag","franz_mittwoch","franz_donnerstag","franz_freitag"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0zn0hit" label="Meister">
+        <inputExpression id="LiteralExpression_07c9hcn" typeRef="string">
+          <text>meister_wunschfrei</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1bwszr6">
+          <text>"meister_montag","meister_dienstag","meister_mittwoch","meister_donnerstag","meister_freitag"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0zjbedi" label="Scheeg">
+        <inputExpression id="LiteralExpression_1q3u8cu" typeRef="string">
+          <text>scheeg_wunschfrei</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0v0jliy">
+          <text>"scheeg_montag","scheeg_dienstag","scheeg_mittwoch","scheeg_donnerstag","scheeg_freitag"</text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="Zeitkonflikt" name="zeitkonflikt" typeRef="string">
+        <outputValues id="UnaryTests_0kg59op">
+          <text>"kein Konflikt","Zeitkonflikt am Montag","Zeitkonflikt am Dienstag","Zeitkonflikt am Mittwoch","Zeitkonflikt am Donnerstag","Zeitkonflikt am Freitag"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1ta9gu6">
+        <inputEntry id="UnaryTests_1ucdpg8">
+          <text>"pfister_montag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uekg93">
+          <text>"wikarski_montag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_070ubst">
+          <text>"franz_montag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sqgdtb">
+          <text>"meister_montag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yk6rzy">
+          <text>"scheeg_montag"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02g8ptj">
+          <text>"Zeitkonflikt am Montag"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qqskdr">
+        <inputEntry id="UnaryTests_0seddxc">
+          <text>"pfister_dienstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pjmd9o">
+          <text>"wikarski_dienstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1slbx7r">
+          <text>"franz_dienstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04c2jkw">
+          <text>"meister_dienstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c67fhx">
+          <text>"scheeg_dienstag"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fl48n4">
+          <text>"Zeitkonflikt am Dienstag"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05orddq">
+        <inputEntry id="UnaryTests_161pqdz">
+          <text>"pfister_mittwoch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uxc1xo">
+          <text>"wikarski_mittwoch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ew3xav">
+          <text>"franz_mittwoch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12gc5cy">
+          <text>"meister_mittwoch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1euc1wa">
+          <text>"scheeg_mittwoch"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1homkgv">
+          <text>"Zeitkonflikt am Mittwoch"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07f6iyo">
+        <inputEntry id="UnaryTests_0sr9ebf">
+          <text>"pfister_donnerstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13d1rur">
+          <text>"wikarski_donnerstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09hi24n">
+          <text>"franz_donnerstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zwgn8d">
+          <text>"meister_donnerstag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vudkvz">
+          <text>"scheeg_donnerstag"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ripcdx">
+          <text>"Zeitkonflikt am Donnerstag"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tv1hgh">
+        <inputEntry id="UnaryTests_1hvnpw3">
+          <text>"pfister_freitag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0byebwp">
+          <text>"wikarski_freitag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oysgyl">
+          <text>"franz_freitag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vov82z">
+          <text>"meister_freitag"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0njqaca">
+          <text>"scheeg_freitag"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14s08cc">
+          <text>"Zeitkonflikt am Freitag"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zsr9zc">
+        <inputEntry id="UnaryTests_1d5a8nq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ocnc9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gwvetv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ld2wlh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kv5qyn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d3u1qc">
+          <text>"kein Konflikt"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

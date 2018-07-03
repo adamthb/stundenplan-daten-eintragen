@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1put98w" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.14.0">
+  <bpmn:process id="stundenplan_midterm" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>SequenceFlow_0joi3m4</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0joi3m4" sourceRef="StartEvent_1" targetRef="Task_06pz2hk" />
+    <bpmn:businessRuleTask id="Task_1ljesxa" name="Raumkonflikt" camunda:resultVariable="raumkonflikt" camunda:decisionRef="Raumkonflikt">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="Input_0np63qv" />
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1vv1h2i</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1loxv9s</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1loxv9s" sourceRef="Task_1ljesxa" targetRef="ExclusiveGateway_1tj7cij" />
+    <bpmn:userTask id="UserTask_1yet1wr" name="Scheeg" camunda:assignee="scheeg">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="scheeg_wunschfrei" label="Bitte wählen Sie Ihren freien Tag aus" type="enum">
+            <camunda:value id="scheeg_montag" name="Montag" />
+            <camunda:value id="scheeg_dienstag" name="Dienstag" />
+            <camunda:value id="scheeg_mittwoch" name="Mittwoch" />
+            <camunda:value id="scheeg_donnerstag" name="Donnerstag" />
+            <camunda:value id="scheeg_freitag" name="Freitag" />
+          </camunda:formField>
+          <camunda:formField id="scheeg_wunschraum" label="Falls benötigt, wählen Sie bitte Ihren Wunschraum aus." type="enum">
+            <camunda:value id="scheeg_keiner" name="Kein Raumwunsch" />
+            <camunda:value id="scheeg_106" name="Raum 106" />
+            <camunda:value id="scheeg_110" name="Raum 110" />
+            <camunda:value id="scheeg_223" name="Raum 223" />
+            <camunda:value id="scheeg_321" name="Raum 321" />
+          </camunda:formField>
+          <camunda:formField id="scheeg_gruppe" label="max. Gruppengröße" type="long" defaultValue="0" />
+          <camunda:formField id="scheeg_software" label="Software" type="enum">
+            <camunda:value id="scheeg_Camunda" name="Camunda" />
+            <camunda:value id="scheeg_NetBeans" name="NetBeans" />
+            <camunda:value id="scheeg_SemTalk" name="SemTalk" />
+            <camunda:value id="scheeg_Modelio" name="Modelio" />
+            <camunda:value id="scheeg_keineS" name="kein Softwarewunsch" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1un7uj8</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1m086f8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0djckhx</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="ExclusiveGateway_0xb1498">
+      <bpmn:incoming>SequenceFlow_15zxc2h</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1un7uj8</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1eztnlu</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_05l6bfx</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_05ufeqx</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1i0t5l9</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_1un7uj8" sourceRef="ExclusiveGateway_0xb1498" targetRef="UserTask_1yet1wr" />
+    <bpmn:sequenceFlow id="SequenceFlow_1eztnlu" sourceRef="ExclusiveGateway_0xb1498" targetRef="UserTask_0j5kjzk" />
+    <bpmn:parallelGateway id="ExclusiveGateway_0lilvyc">
+      <bpmn:incoming>SequenceFlow_1ulnhyl</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0djckhx</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1m3f8zw</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1mqbcdq</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0pn3zuk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1vv1h2i</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1w4pm7a</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_1vv1h2i" sourceRef="ExclusiveGateway_0lilvyc" targetRef="Task_1ljesxa" />
+    <bpmn:sequenceFlow id="SequenceFlow_1w4pm7a" sourceRef="ExclusiveGateway_0lilvyc" targetRef="Task_1eqzd3l" />
+    <bpmn:sequenceFlow id="SequenceFlow_1w9a7th" sourceRef="Task_1eqzd3l" targetRef="ExclusiveGateway_1tj7cij" />
+    <bpmn:parallelGateway id="ExclusiveGateway_1tj7cij">
+      <bpmn:incoming>SequenceFlow_1loxv9s</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1w9a7th</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0oyyj91</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_0oyyj91" sourceRef="ExclusiveGateway_1tj7cij" targetRef="EndEvent_1aq4fgc" />
+    <bpmn:businessRuleTask id="Task_1eqzd3l" name="Zeitkonflikt" camunda:resultVariable="zeitkonflikt" camunda:decisionRef="Decision_Zeit1" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>SequenceFlow_1w4pm7a</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1w9a7th</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:userTask id="UserTask_0oo525z" name="Franz" camunda:assignee="franz">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="franz_wunschfrei" label="Bitte wählen Sie Ihren freien Tag aus" type="enum">
+            <camunda:value id="franz_montag" name="Montag" />
+            <camunda:value id="franz_dienstag" name="Dienstag" />
+            <camunda:value id="franz_mittwoch" name="Mittwoch" />
+            <camunda:value id="franz_donnerstag" name="Donnerstag" />
+            <camunda:value id="franz_freitag" name="Freitag" />
+          </camunda:formField>
+          <camunda:formField id="franz_wunschraum" label="Falls benötigt, wählen Sie bitte Ihren Wunschraum aus." type="enum">
+            <camunda:value id="franz_keiner" name="Kein Raumwunsch" />
+            <camunda:value id="franz_106" name="Raum 106" />
+            <camunda:value id="franz_110" name="Raum 110" />
+            <camunda:value id="franz_223" name="Raum 223" />
+            <camunda:value id="franz_321" name="Raum 321" />
+          </camunda:formField>
+          <camunda:formField id="franz_gruppe" label="max. Gruppengröße" type="long" defaultValue="0" />
+          <camunda:formField id="franz_software" label="Software" type="enum">
+            <camunda:value id="franz_Camunda" name="Camunda" />
+            <camunda:value id="franz_NetBeans" name="NetBeans" />
+            <camunda:value id="franz_SemTalk" name="SemTalk" />
+            <camunda:value id="franz_Modelio" name="Modelio" />
+            <camunda:value id="franz_keineS" name="kein Softwarewunsch" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_05l6bfx</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0h2k3al</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1m3f8zw</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_05l6bfx" sourceRef="ExclusiveGateway_0xb1498" targetRef="UserTask_0oo525z" />
+    <bpmn:userTask id="UserTask_18w43kq" name="Pfister" camunda:assignee="pfister">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="pfister_wunschfrei" label="Bitte wählen Sie Ihren freien Tag aus" type="enum">
+            <camunda:value id="pfister_montag" name="Montag" />
+            <camunda:value id="pfister_dienstag" name="Dienstag" />
+            <camunda:value id="pfister_mittwoch" name="Mittwoch" />
+            <camunda:value id="pfister_donnerstag" name="Donnerstag" />
+            <camunda:value id="pfister_freitag" name="Freitag" />
+          </camunda:formField>
+          <camunda:formField id="pfister_wunschraum" label="Falls benötigt, wählen Sie bitte Ihren Wunschraum aus." type="enum">
+            <camunda:value id="pfister_keiner" name="Kein Raumwunsch" />
+            <camunda:value id="pfister_106" name="Raum 106" />
+            <camunda:value id="pfister_110" name="Raum 110" />
+            <camunda:value id="pfister_223" name="Raum 223" />
+            <camunda:value id="pfister_321" name="Raum 321" />
+          </camunda:formField>
+          <camunda:formField id="pfister_gruppe" label="max. Gruppengröße" type="long" defaultValue="0" />
+          <camunda:formField id="pfister_software" label="Software" type="enum">
+            <camunda:value id="pfister_Camunda" name="Camunda" />
+            <camunda:value id="pfister_NetBeans" name="NetBeans" />
+            <camunda:value id="pfister_SemTalk" name="SemTalk" />
+            <camunda:value id="pfister_Modelio" name="Modelio" />
+            <camunda:value id="pfister_keineS" name="kein Softwarewunsch" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_05ufeqx</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_10gncbj</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1mqbcdq</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_05ufeqx" sourceRef="ExclusiveGateway_0xb1498" targetRef="UserTask_18w43kq" />
+    <bpmn:userTask id="UserTask_0j5kjzk" name="Meister" camunda:assignee="meister">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="meister_wunschfrei" label="Bitte wählen Sie Ihren freien Tag aus" type="enum">
+            <camunda:value id="meister_montag" name="Montag" />
+            <camunda:value id="meister_dienstag" name="Dienstag" />
+            <camunda:value id="meister_mittwoch" name="Mittwoch" />
+            <camunda:value id="meister_donnerstag" name="Donnerstag" />
+            <camunda:value id="meister_freitag" name="Freitag" />
+          </camunda:formField>
+          <camunda:formField id="meister_wunschraum" label="Falls benötigt, wählen Sie bitte Ihren Wunschraum aus." type="enum">
+            <camunda:value id="meister_keiner" name="Kein Raumwunsch" />
+            <camunda:value id="meister_106" name="Raum 106" />
+            <camunda:value id="meister_110" name="Raum 110" />
+            <camunda:value id="meister_223" name="Raum 223" />
+            <camunda:value id="meister_321" name="Raum 321" />
+          </camunda:formField>
+          <camunda:formField id="meister_gruppe" label="max. Gruppengröße" type="long" defaultValue="0" />
+          <camunda:formField id="meister_software" label="Software" type="enum" defaultValue="meister_keineS">
+            <camunda:value id="meister_Camunda" name="Camunda" />
+            <camunda:value id="meister_NetBeans" name="NetBeans" />
+            <camunda:value id="meister_SemTalk" name="SemTalk" />
+            <camunda:value id="meister_Modelio" name="Modelio" />
+            <camunda:value id="meister_keineS" name="kein Softwarewunsch" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1eztnlu</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_02g22gb</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1ulnhyl</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1ulnhyl" sourceRef="UserTask_0j5kjzk" targetRef="ExclusiveGateway_0lilvyc" />
+    <bpmn:sequenceFlow id="SequenceFlow_03ygprh" sourceRef="UserTask_1e9dbub" targetRef="wikarsijhhj" />
+    <bpmn:sequenceFlow id="SequenceFlow_0djckhx" sourceRef="UserTask_1yet1wr" targetRef="ExclusiveGateway_0lilvyc" />
+    <bpmn:sequenceFlow id="SequenceFlow_1m3f8zw" sourceRef="UserTask_0oo525z" targetRef="ExclusiveGateway_0lilvyc" />
+    <bpmn:sequenceFlow id="SequenceFlow_1mqbcdq" sourceRef="UserTask_18w43kq" targetRef="ExclusiveGateway_0lilvyc" />
+    <bpmn:userTask id="UserTask_1e9dbub" name="Wikarski" camunda:assignee="wikarski">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="wikarski_wunschfrei" label="Bitte wählen Sie Ihren freien Tag aus" type="enum">
+            <camunda:value id="wikarski_montag" name="Montag" />
+            <camunda:value id="wikarski_dienstag" name="Dienstag" />
+            <camunda:value id="wikarski_mittwoch" name="Mittwoch" />
+            <camunda:value id="wikarski_donnerstag" name="Donnerstag" />
+            <camunda:value id="wikarski_freitag" name="Freitag" />
+          </camunda:formField>
+          <camunda:formField id="wikarski_wunschraum" label="Falls benötigt, wählen Sie bitte Ihren Wunschraum aus." type="enum">
+            <camunda:value id="wikarski_keiner" name="Kein Raumwunsch" />
+            <camunda:value id="wikarski_106" name="Raum 106" />
+            <camunda:value id="wikarski_110" name="Raum 110" />
+            <camunda:value id="wikarski_223" name="Raum 223" />
+            <camunda:value id="wikarski_321" name="Raum 321" />
+          </camunda:formField>
+          <camunda:formField id="wikarski_gruppe" label="max. Gruppengröße" type="long" defaultValue="0" />
+          <camunda:formField id="wikarski_software" label="Software" type="enum">
+            <camunda:value id="wikarski_Camunda" name="Camunda" />
+            <camunda:value id="wikarski_NetBeans" name="NetBeans" />
+            <camunda:value id="wikarski_SemTalk" name="SemTalk" />
+            <camunda:value id="wikarski_Modelio" name="Modelio" />
+            <camunda:value id="wikarski_keineS" name="kein Softwarewunsch" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1i0t5l9</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0mk6dop</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_03ygprh</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1i0t5l9" sourceRef="ExclusiveGateway_0xb1498" targetRef="UserTask_1e9dbub" />
+    <bpmn:sendTask id="Task_06pz2hk" name="Email an Profs senden" camunda:class="org.camunda.bpm.getstarted.loanapproval.email_senden">
+      <bpmn:incoming>SequenceFlow_0joi3m4</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_15zxc2h</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="SendTask_1ohi5j3" name="Reminder an Wikarski senden" camunda:class="org.camunda.bpm.getstarted.loanapproval.reminder_wikarski">
+      <bpmn:incoming>SequenceFlow_0ol89w7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0mk6dop</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0ol89w7" sourceRef="BoundaryEvent_0lhqmdd" targetRef="SendTask_1ohi5j3" />
+    <bpmn:sequenceFlow id="SequenceFlow_0mk6dop" sourceRef="SendTask_1ohi5j3" targetRef="UserTask_1e9dbub" />
+    <bpmn:sendTask id="SendTask_1gv4aev" name="Reminder an Meister senden" camunda:class="org.camunda.bpm.getstarted.loanapproval.reminder_meister">
+      <bpmn:incoming>SequenceFlow_0yn3shn</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_02g22gb</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0yn3shn" sourceRef="BoundaryEvent_1hcrz2j" targetRef="SendTask_1gv4aev" />
+    <bpmn:sequenceFlow id="SequenceFlow_02g22gb" sourceRef="SendTask_1gv4aev" targetRef="UserTask_0j5kjzk" />
+    <bpmn:sendTask id="SendTask_0xwuslg" name="Reminder an Scheeg senden" camunda:class="org.camunda.bpm.getstarted.loanapproval.reminder_scheeg">
+      <bpmn:incoming>SequenceFlow_1qqdin7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1m086f8</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1qqdin7" sourceRef="BoundaryEvent_0q075st" targetRef="SendTask_0xwuslg" />
+    <bpmn:sequenceFlow id="SequenceFlow_1m086f8" sourceRef="SendTask_0xwuslg" targetRef="UserTask_1yet1wr" />
+    <bpmn:sendTask id="SendTask_0ijeshu" name="Reminder an Franz senden" camunda:class="org.camunda.bpm.getstarted.loanapproval.reminder_franz">
+      <bpmn:incoming>SequenceFlow_0k7s3d1</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0h2k3al</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0k7s3d1" sourceRef="BoundaryEvent_06k1emq" targetRef="SendTask_0ijeshu" />
+    <bpmn:sequenceFlow id="SequenceFlow_0h2k3al" sourceRef="SendTask_0ijeshu" targetRef="UserTask_0oo525z" />
+    <bpmn:sendTask id="SendTask_1h41nou" name="Reminder an Pfister senden" camunda:class="org.camunda.bpm.getstarted.loanapproval.reminder_pfister">
+      <bpmn:incoming>SequenceFlow_1jp1ij2</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10gncbj</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1jp1ij2" sourceRef="BoundaryEvent_1j3xqp3" targetRef="SendTask_1h41nou" />
+    <bpmn:sequenceFlow id="SequenceFlow_10gncbj" sourceRef="SendTask_1h41nou" targetRef="UserTask_18w43kq" />
+    <bpmn:sequenceFlow id="SequenceFlow_15zxc2h" sourceRef="Task_06pz2hk" targetRef="ExclusiveGateway_0xb1498" />
+    <bpmn:boundaryEvent id="BoundaryEvent_1j3xqp3" name="2 Wochen warten" attachedToRef="UserTask_18w43kq">
+      <bpmn:outgoing>SequenceFlow_1jp1ij2</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="BoundaryEvent_06k1emq" name="2 Wochen warten" attachedToRef="UserTask_0oo525z">
+      <bpmn:outgoing>SequenceFlow_0k7s3d1</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="BoundaryEvent_0q075st" name="2 Wochen warten" attachedToRef="UserTask_1yet1wr">
+      <bpmn:outgoing>SequenceFlow_1qqdin7</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="BoundaryEvent_1hcrz2j" name="2 Wochen warten" attachedToRef="UserTask_0j5kjzk">
+      <bpmn:outgoing>SequenceFlow_0yn3shn</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="BoundaryEvent_0lhqmdd" name="2 Wochen warten" attachedToRef="UserTask_1e9dbub">
+      <bpmn:outgoing>SequenceFlow_0ol89w7</bpmn:outgoing>
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:endEvent id="EndEvent_1aq4fgc" name="Email an Stundenplan-Abteilung">
+      <bpmn:incoming>SequenceFlow_0oyyj91</bpmn:incoming>
+      <bpmn:messageEventDefinition camunda:class="org.camunda.bpm.getstarted.loanapproval.stundenplan_email" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0pn3zuk" sourceRef="wikarsijhhj" targetRef="ExclusiveGateway_0lilvyc" />
+    <bpmn:businessRuleTask id="wikarsijhhj" name="li" camunda:resultVariable="wikarski_raum" camunda:decisionRef="wikarski_raumwahl1" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>SequenceFlow_03ygprh</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0pn3zuk</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="stundenplan_midterm">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="-74" y="923" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-68" y="959" width="25" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0joi3m4_di" bpmnElement="SequenceFlow_0joi3m4">
+        <di:waypoint x="-38" y="941" />
+        <di:waypoint x="115" y="941" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-6.5" y="920" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BusinessRuleTask_15q2dme_di" bpmnElement="Task_1ljesxa">
+        <dc:Bounds x="1220" y="725" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1loxv9s_di" bpmnElement="SequenceFlow_1loxv9s">
+        <di:waypoint x="1320" y="765" />
+        <di:waypoint x="1517" y="765" />
+        <di:waypoint x="1517" y="916" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1373.5" y="744" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1yet1wr_di" bpmnElement="UserTask_1yet1wr">
+        <dc:Bounds x="516" y="901" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ParallelGateway_1azeyq5_di" bpmnElement="ExclusiveGateway_0xb1498">
+        <dc:Bounds x="341" y="916" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="401" y="935" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1un7uj8_di" bpmnElement="SequenceFlow_1un7uj8">
+        <di:waypoint x="391" y="941" />
+        <di:waypoint x="516" y="941" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="408.5" y="920" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1eztnlu_di" bpmnElement="SequenceFlow_1eztnlu">
+        <di:waypoint x="366" y="916" />
+        <di:waypoint x="366" y="644" />
+        <di:waypoint x="516" y="644" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="336" y="774" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ParallelGateway_0ho4xnr_di" bpmnElement="ExclusiveGateway_0lilvyc">
+        <dc:Bounds x="886" y="916" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="786" y="935" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1vv1h2i_di" bpmnElement="SequenceFlow_1vv1h2i">
+        <di:waypoint x="936" y="941" />
+        <di:waypoint x="1051" y="941" />
+        <di:waypoint x="1051" y="765" />
+        <di:waypoint x="1220" y="765" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1021" y="847" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1w4pm7a_di" bpmnElement="SequenceFlow_1w4pm7a">
+        <di:waypoint x="936" y="941" />
+        <di:waypoint x="1051" y="941" />
+        <di:waypoint x="1051" y="1123" />
+        <di:waypoint x="1220" y="1123" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1021" y="1026" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1w9a7th_di" bpmnElement="SequenceFlow_1w9a7th">
+        <di:waypoint x="1320" y="1123" />
+        <di:waypoint x="1517" y="1123" />
+        <di:waypoint x="1517" y="966" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1373.5" y="1102" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ParallelGateway_1kegh1h_di" bpmnElement="ExclusiveGateway_1tj7cij">
+        <dc:Bounds x="1492" y="916" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1392" y="935" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0oyyj91_di" bpmnElement="SequenceFlow_0oyyj91">
+        <di:waypoint x="1542" y="941" />
+        <di:waypoint x="1761" y="941" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1606.5" y="920" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BusinessRuleTask_1u2qisk_di" bpmnElement="Task_1eqzd3l">
+        <dc:Bounds x="1220" y="1083" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0oo525z_di" bpmnElement="UserTask_0oo525z">
+        <dc:Bounds x="516" y="1199" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_05l6bfx_di" bpmnElement="SequenceFlow_05l6bfx">
+        <di:waypoint x="366" y="966" />
+        <di:waypoint x="366" y="1239" />
+        <di:waypoint x="516" y="1239" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="336" y="1096.5" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_18w43kq_di" bpmnElement="UserTask_18w43kq">
+        <dc:Bounds x="516" y="1498" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_05ufeqx_di" bpmnElement="SequenceFlow_05ufeqx">
+        <di:waypoint x="366" y="966" />
+        <di:waypoint x="366" y="1538" />
+        <di:waypoint x="516" y="1538" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="336" y="1246" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0j5kjzk_di" bpmnElement="UserTask_0j5kjzk">
+        <dc:Bounds x="516" y="604" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ulnhyl_di" bpmnElement="SequenceFlow_1ulnhyl">
+        <di:waypoint x="616" y="644" />
+        <di:waypoint x="909" y="644" />
+        <di:waypoint x="911" y="916" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="717.5" y="623" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_03ygprh_di" bpmnElement="SequenceFlow_03ygprh">
+        <di:waypoint x="616" y="375" />
+        <di:waypoint x="774" y="375" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="650" y="354" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0djckhx_di" bpmnElement="SequenceFlow_0djckhx">
+        <di:waypoint x="616" y="941" />
+        <di:waypoint x="886" y="941" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="706" y="920" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1m3f8zw_di" bpmnElement="SequenceFlow_1m3f8zw">
+        <di:waypoint x="616" y="1239" />
+        <di:waypoint x="911" y="1239" />
+        <di:waypoint x="911" y="966" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="718.5" y="1218" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1mqbcdq_di" bpmnElement="SequenceFlow_1mqbcdq">
+        <di:waypoint x="616" y="1538" />
+        <di:waypoint x="911" y="1538" />
+        <di:waypoint x="911" y="966" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="718.5" y="1517" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1e9dbub_di" bpmnElement="UserTask_1e9dbub">
+        <dc:Bounds x="516" y="335" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1i0t5l9_di" bpmnElement="SequenceFlow_1i0t5l9">
+        <di:waypoint x="366" y="916" />
+        <di:waypoint x="366" y="375" />
+        <di:waypoint x="516" y="375" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="336" y="639.5" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_16qgu2w_di" bpmnElement="Task_06pz2hk">
+        <dc:Bounds x="115" y="901" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SendTask_1ohi5j3_di" bpmnElement="SendTask_1ohi5j3">
+        <dc:Bounds x="476" y="489" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ol89w7_di" bpmnElement="SequenceFlow_0ol89w7">
+        <di:waypoint x="616" y="433" />
+        <di:waypoint x="616" y="529" />
+        <di:waypoint x="576" y="529" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="586" y="475" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0mk6dop_di" bpmnElement="SequenceFlow_0mk6dop">
+        <di:waypoint x="476" y="529" />
+        <di:waypoint x="450" y="529" />
+        <di:waypoint x="450" y="375" />
+        <di:waypoint x="516" y="375" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="465" y="446" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_1gv4aev_di" bpmnElement="SendTask_1gv4aev">
+        <dc:Bounds x="476" y="770" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0yn3shn_di" bpmnElement="SequenceFlow_0yn3shn">
+        <di:waypoint x="616" y="702" />
+        <di:waypoint x="616" y="810" />
+        <di:waypoint x="576" y="810" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="586" y="750" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_02g22gb_di" bpmnElement="SequenceFlow_02g22gb">
+        <di:waypoint x="476" y="810" />
+        <di:waypoint x="453" y="810" />
+        <di:waypoint x="453" y="644" />
+        <di:waypoint x="516" y="644" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="468" y="721" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_0xwuslg_di" bpmnElement="SendTask_0xwuslg">
+        <dc:Bounds x="476" y="1054" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1qqdin7_di" bpmnElement="SequenceFlow_1qqdin7">
+        <di:waypoint x="616" y="999" />
+        <di:waypoint x="616" y="1094" />
+        <di:waypoint x="576" y="1094" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="586" y="1040.5" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1m086f8_di" bpmnElement="SequenceFlow_1m086f8">
+        <di:waypoint x="476" y="1094" />
+        <di:waypoint x="452" y="1094" />
+        <di:waypoint x="452" y="941" />
+        <di:waypoint x="516" y="941" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="467" y="1011.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_0ijeshu_di" bpmnElement="SendTask_0ijeshu">
+        <dc:Bounds x="476" y="1358" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0k7s3d1_di" bpmnElement="SequenceFlow_0k7s3d1">
+        <di:waypoint x="616" y="1297" />
+        <di:waypoint x="616" y="1398" />
+        <di:waypoint x="576" y="1398" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="586" y="1341.5" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0h2k3al_di" bpmnElement="SequenceFlow_0h2k3al">
+        <di:waypoint x="476" y="1398" />
+        <di:waypoint x="441" y="1398" />
+        <di:waypoint x="441" y="1239" />
+        <di:waypoint x="516" y="1239" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="456" y="1312.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_1h41nou_di" bpmnElement="SendTask_1h41nou">
+        <dc:Bounds x="476" y="1660" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jp1ij2_di" bpmnElement="SequenceFlow_1jp1ij2">
+        <di:waypoint x="616" y="1596" />
+        <di:waypoint x="616" y="1700" />
+        <di:waypoint x="576" y="1700" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="631" y="1642" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10gncbj_di" bpmnElement="SequenceFlow_10gncbj">
+        <di:waypoint x="476" y="1700" />
+        <di:waypoint x="446" y="1700" />
+        <di:waypoint x="446" y="1538" />
+        <di:waypoint x="516" y="1538" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="461" y="1613" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_15zxc2h_di" bpmnElement="SequenceFlow_15zxc2h">
+        <di:waypoint x="215" y="941" />
+        <di:waypoint x="341" y="941" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="278" y="920" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BoundaryEvent_09g35iy_di" bpmnElement="BoundaryEvent_1j3xqp3">
+        <dc:Bounds x="598" y="1560" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="650" y="1572" width="89" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_0z7t1so_di" bpmnElement="BoundaryEvent_06k1emq">
+        <dc:Bounds x="598" y="1261" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="648" y="1273" width="89" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_1cu7vu5_di" bpmnElement="BoundaryEvent_0q075st">
+        <dc:Bounds x="598" y="963" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="651" y="975" width="89" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_0zsd2t3_di" bpmnElement="BoundaryEvent_1hcrz2j">
+        <dc:Bounds x="598" y="666" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="655" y="678" width="89" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_0tegi0m_di" bpmnElement="BoundaryEvent_0lhqmdd">
+        <dc:Bounds x="598" y="397" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="651" y="409" width="89" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_19ulsgd_di" bpmnElement="EndEvent_1aq4fgc">
+        <dc:Bounds x="1761" y="923" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1745" y="874" width="68" height="36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0pn3zuk_di" bpmnElement="SequenceFlow_0pn3zuk">
+        <di:waypoint x="874" y="375" />
+        <di:waypoint x="911" y="375" />
+        <di:waypoint x="911" y="916" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="892.5" y="354" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BusinessRuleTask_02q6qjv_di" bpmnElement="wikarsijhhj">
+        <dc:Bounds x="774" y="335" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

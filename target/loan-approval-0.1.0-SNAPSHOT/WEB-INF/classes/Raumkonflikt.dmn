@@ -1,0 +1,3135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_0zui2ho" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Raumkonflikt" name="Raumkonflikt">
+    <extensionElements>
+      <biodi:bounds x="456" y="123" width="180" height="80" />
+      <biodi:edge source="franz_raumwahl1">
+        <biodi:waypoints x="225" y="344" />
+        <biodi:waypoints x="450" y="195" />
+      </biodi:edge>
+      <biodi:edge source="meister_raumwahl1">
+        <biodi:waypoints x="406" y="387" />
+        <biodi:waypoints x="473" y="203" />
+      </biodi:edge>
+      <biodi:edge source="pfister_raumwahl1">
+        <biodi:waypoints x="594" y="408" />
+        <biodi:waypoints x="491" y="208" />
+      </biodi:edge>
+      <biodi:edge source="scheeg_raumwahl1">
+        <biodi:waypoints x="265" y="234" />
+        <biodi:waypoints x="456" y="177" />
+      </biodi:edge>
+      <biodi:edge source="wikarski_raumwahl1">
+        <biodi:waypoints x="268" y="159" />
+        <biodi:waypoints x="456" y="167" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredDecision href="#franz_raumwahl1" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#meister_raumwahl1" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#pfister_raumwahl1" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#scheeg_raumwahl1" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#wikarski_raumwahl1" />
+    </informationRequirement>
+    <decisionTable id="decisionTable_1" hitPolicy="COLLECT">
+      <input id="InputClause_0qjbase" label="Pfister">
+        <inputExpression id="LiteralExpression_1oe2s2l" typeRef="string">
+          <text>pfister_raum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1n9wo5n">
+          <text>"106","110","223","321"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1dpzqx7" label="Wikarski">
+        <inputExpression id="LiteralExpression_0dtzvav" typeRef="string">
+          <text>wikarski_raum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1qgioir">
+          <text>"106","110","223","321"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0656iv7" label="Franz">
+        <inputExpression id="LiteralExpression_0xl7zf2" typeRef="string">
+          <text>franz_raum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_000a9ye">
+          <text>"106","110","223","321"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_06tp5xy" label="Meister">
+        <inputExpression id="LiteralExpression_0wvz0hw" typeRef="string">
+          <text>meister_raum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_14xy85o">
+          <text>"106","110","223","321"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0agtevw" label="Scheeg">
+        <inputExpression id="LiteralExpression_1ntbhyg" typeRef="string">
+          <text>scheeg_raum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0kgn6w7">
+          <text>"106","110","223","321"</text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="Raumkonflikt" name="raumkonflikt" typeRef="string">
+        <outputValues id="UnaryTests_05dtah5">
+          <text>"Raum 106 mehrfach benötigt","Raum 110 mehrfach benötigt","Raum 223 mehrfach benötigt","Raum 321 mehrfach benötigt","kein Raumkonflikt","Wikarski benötigt Raum 106","Wikarski benötigt Raum 110","Wikarski benötigt Raum 223","Wikarski benötigt Raum 321","Franz benötigt Raum 106","Franz benötigt Raum 110","Franz benötigt Raum 223","Franz benötigt Raum 321","Meister benötigt Raum 106","Meister benötigt Raum 110","Meister benötigt Raum 223","Meister benötigt Raum 321","Pfister benötigt Raum 106","Pfister benötigt Raum 110","Pfister benötigt Raum 223","Pfister benötigt Raum 321","Scheeg benötigt Raum 106","Scheeg benötigt Raum 110","Scheeg benötigt Raum 223","Scheeg benötigt Raum 321"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_05zptrp">
+        <inputEntry id="UnaryTests_01r2f4p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1umv7h3">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07yj2gs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h8mog9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00olzkj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n2di9q">
+          <text>"Wikarski benötigt Raum 106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08gryx0">
+        <inputEntry id="UnaryTests_1jx52hz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08fgc9p">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cslqce">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uadfa3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ygryu5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g3cpwh">
+          <text>"Wikarski benötigt Raum 110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k5se1s">
+        <inputEntry id="UnaryTests_1ytfm17">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vh8b5z">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lstcq3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12vcp49">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1roq0vd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jjo3dz">
+          <text>"Wikarski benötigt Raum 223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i6vjba">
+        <inputEntry id="UnaryTests_1p5ja5y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h3f1ub">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gj39rf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_154r5vm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lkb4u9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mtr4zz">
+          <text>"Wikarski benötigt Raum 321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ew1vbd">
+        <inputEntry id="UnaryTests_0sgigcr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cyguvi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ybovcu">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w0h1qt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ys6x5a">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fp35sx">
+          <text>"Franz benötigt Raum 106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01gr33f">
+        <inputEntry id="UnaryTests_1gdgbgf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06vr6vj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m3fvtn">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m3uud6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oh93xi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_120sgo7">
+          <text>"Franz benötigt Raum 110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0croqks">
+        <inputEntry id="UnaryTests_1eydkf3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vnk8xr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_010d1wh">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mii8t6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05a38ee">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ss8lq0">
+          <text>"Franz benötigt Raum 223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ir0uva">
+        <inputEntry id="UnaryTests_0zhj1jh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14jkc0s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0alxaoj">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xwl63i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c7xnj8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pa7br3">
+          <text>"Franz benötigt Raum 321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fi7gv5">
+        <inputEntry id="UnaryTests_1a363hh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qh8ubw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g0sa7v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hgj4aj">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uckkyt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lha3za">
+          <text>"Meister benötigt Raum 106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v69dx3">
+        <inputEntry id="UnaryTests_0q1e5z7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ffdsfi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18zezy1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05c49zn">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fm4448">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jd37zv">
+          <text>"Meister benötigt Raum 110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j3wgh2">
+        <inputEntry id="UnaryTests_18yfew7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g0jc1z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16aqy5k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_009bsf3">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_019uxxb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yk4fz7">
+          <text>"Meister benötigt Raum 223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u6zp4f">
+        <inputEntry id="UnaryTests_1vu8ttn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nacoyu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u1yolq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0npulah">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wg1lgu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06rzl82">
+          <text>"Meister benötigt Raum 321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ke8je8">
+        <inputEntry id="UnaryTests_07cxspx">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wh8ozn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fhjtj6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kuycl6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ks9k3z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0brm8f0">
+          <text>"Pfister benötigt Raum 106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tud5jv">
+        <inputEntry id="UnaryTests_0nmbtlm">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qht2lx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09md504">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d9c3ct">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03ao62j">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15nadq2">
+          <text>"Pfister benötigt Raum 110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07crxht">
+        <inputEntry id="UnaryTests_0z4u8ga">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1545kjx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vg0u93">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s6rxxn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xa9vwg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x6u70m">
+          <text>"Pfister benötigt Raum 223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14ognti">
+        <inputEntry id="UnaryTests_0a3m8kb">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f27kdp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0owpf5t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s98v8r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mlkags">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_102u6ok">
+          <text>"Pfister benötigt Raum 321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jf71oa">
+        <inputEntry id="UnaryTests_0nz8pzl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d51k8i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xtqt0b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mqu8nc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0txu0gd">
+          <text>"106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1exn4tw">
+          <text>"Scheeg benötigt Raum 106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vl2nbm">
+        <inputEntry id="UnaryTests_15totvy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m4a59t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q374ov">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mndi0b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0haepa1">
+          <text>"110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mv6g6e">
+          <text>"Scheeg benötigt Raum 110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0y8f686">
+        <inputEntry id="UnaryTests_0hrtu4k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kp7w2j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_179x58m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rbus7i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lgoc9v">
+          <text>"223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ovbgkw">
+          <text>"Scheeg benötigt Raum 223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a2ibri">
+        <inputEntry id="UnaryTests_1mloa8t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zu7ahq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cw95z4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pycjs1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19q9u2y">
+          <text>"321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tgivfu">
+          <text>"Scheeg benötigt Raum 321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ig6ag5">
+        <inputEntry id="UnaryTests_0nz39j1">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tvlwya">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kqc474">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0huk747">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tmzesv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tcds7o">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qq55ee">
+        <inputEntry id="UnaryTests_17yx6g7">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v7ret6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wm88ja">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pf6rf8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1z0izuy">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qh7lo7">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_110b1rz">
+        <inputEntry id="UnaryTests_1leejyy">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04qqtz0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_039rfzr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u3yizh">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19kj5tc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12fahtt">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_115fsz5">
+        <inputEntry id="UnaryTests_1p8rp4i">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a19au1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hy3wxh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n7qb6f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_097836e">
+          <text>"106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_024zggg">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02voblk">
+        <inputEntry id="UnaryTests_1r8v3hu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_074wswx">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pxxp68">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y7acvn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07r52yi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1by8lef">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wmnvjx">
+        <inputEntry id="UnaryTests_04fqd78">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vlflif">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s2fyya">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05iwaul">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ofn331">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hvvfmd">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17stek4">
+        <inputEntry id="UnaryTests_09jyyc7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rx2kd3">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00767m9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dyznnf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f7cnsw">
+          <text>"106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05pza5r">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1utjl0o">
+        <inputEntry id="UnaryTests_0zw5o1o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zsur5w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nlvgq9">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06zpucu">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r0kwl9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ihjzxs">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r04z3x">
+        <inputEntry id="UnaryTests_0g8aykn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dqweu1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t9zmmh">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i0y8n8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u9k03c">
+          <text>"106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pixup8">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ep1q6k">
+        <inputEntry id="UnaryTests_1fnl0c0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n77atk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d4ixlx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mdvij5">
+          <text>"106"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ilp9nw">
+          <text>"106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uyi5gq">
+          <text>"Raum 106 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_036byzx">
+        <inputEntry id="UnaryTests_0t71vmp">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1og1x0b">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ffvsak">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ghs5zu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15x4fuu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0eif5hv">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02qtt6p">
+        <inputEntry id="UnaryTests_1eyh41y">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ixrhem">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10tauvn">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cqktxv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07e3xhx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pjd9by">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cyb92v">
+        <inputEntry id="UnaryTests_0y6ms9a">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_102ruem">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bnuhhi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_164k6zs">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1st9ag2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hh820i">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15n28oq">
+        <inputEntry id="UnaryTests_0tamh0i">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18agpnx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xwsmm7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gh2ane">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jldud9">
+          <text>"110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09ppj9n">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00hfs29">
+        <inputEntry id="UnaryTests_16njmnp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ne8ogs">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03zxuhv">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_124py35">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w761oc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12hfd2z">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xzud4f">
+        <inputEntry id="UnaryTests_1v7uj2s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16gmnor">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uced3a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00yqkfv">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0su4hes">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fvj79h">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wmdsbd">
+        <inputEntry id="UnaryTests_1qn5tmn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_175omj6">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_013y1db">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17a20ay">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lkzx50">
+          <text>"110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vsgu73">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v8ffag">
+        <inputEntry id="UnaryTests_16cy0s9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_108muza">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w51zcf">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qhyh9t">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ingok6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1eh0ngw">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mpxktn">
+        <inputEntry id="UnaryTests_0tlq3cn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18aw8gv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i2h3e7">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u1fz2r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sfxcsd">
+          <text>"110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11cfmmn">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_163qo0d">
+        <inputEntry id="UnaryTests_0vrtnni">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cn37lf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_162c65q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0udq14l">
+          <text>"110"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sq0o3q">
+          <text>"110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kaobor">
+          <text>"Raum 110 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m1y1f5">
+        <inputEntry id="UnaryTests_0ivx5zt">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ybk9g7">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s3vqg8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhkuy0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_144ts82">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ymxq59">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1czrfjg">
+        <inputEntry id="UnaryTests_0pto4ip">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xct8qo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d3vve5">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07q211k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dc7iqg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02ckrlk">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1731uk2">
+        <inputEntry id="UnaryTests_0031wep">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gq9nv0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hebkjp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19jj3qg">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14kuf0c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wqulwn">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04cdlez">
+        <inputEntry id="UnaryTests_1et6of3">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ammfim">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s75nfx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pb6vmc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zuy68h">
+          <text>"223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lpjojr">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nntjqh">
+        <inputEntry id="UnaryTests_07pf9ay">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bzr7ud">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06fg7ib">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cls7ny">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tx8exu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1728tgl">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0joo2j8">
+        <inputEntry id="UnaryTests_10m0f7q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0btdwlz">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h3ylj6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kea2r2">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07bzfoe">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ec61ci">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04bfe4l">
+        <inputEntry id="UnaryTests_0l5wn7j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02chggc">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0btnwc7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z451hu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qmqwbg">
+          <text>"223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1eqmlib">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jtvj7c">
+        <inputEntry id="UnaryTests_03es1bm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i5cm7r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p8nu86">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04lvdxi">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mxvygt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l09n6p">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04b41wp">
+        <inputEntry id="UnaryTests_0csymyi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qisktk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09tdy6t">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0abnppu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_129x27b">
+          <text>"223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09hjfqb">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18a4lve">
+        <inputEntry id="UnaryTests_1ckcepa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v8pyc7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lf4r1j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rn3fdn">
+          <text>"223"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kohx8h">
+          <text>"223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qytljt">
+          <text>"Raum 223 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yohzr6">
+        <inputEntry id="UnaryTests_0xo834j">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h09ao0">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17wsp77">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wutmeb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cf918q">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jdfjln">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ffias4">
+        <inputEntry id="UnaryTests_0o4xzuh">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1prrlp5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q37dxs">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p48nkh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bi4zyl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08y9gst">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00yhgx6">
+        <inputEntry id="UnaryTests_1o28cp5">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05f62f7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0te0wdf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_141sjdj">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11hffbr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01kqv3z">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09hi6nu">
+        <inputEntry id="UnaryTests_0yhgyvw">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hral8z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_162ycne">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_042mds7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1655x5j">
+          <text>"321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gmcpfh">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1oycb7j">
+        <inputEntry id="UnaryTests_1sm85kt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_167tgww">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1on41fd">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vvphcc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mevzjo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a1j3tn">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dzi9gn">
+        <inputEntry id="UnaryTests_0wju6r8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jrxprr">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07kmisj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ub5349">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e9u4go">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_162els2">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00azlqk">
+        <inputEntry id="UnaryTests_0bqs9wv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02r0b2k">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05psmwq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kegts7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dzryba">
+          <text>"321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1atn35z">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a6rhbv">
+        <inputEntry id="UnaryTests_1eyf7e4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t7yqr5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ut2bbb">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kcobob">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nj3bys">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m5yd95">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vm37m9">
+        <inputEntry id="UnaryTests_1e0d6yi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_032zzs6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tsexk8">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0shr56j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n59dyp">
+          <text>"321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hbaudj">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q0h2fd">
+        <inputEntry id="UnaryTests_07lrgl9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oz2yt3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eudvzj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ops5l3">
+          <text>"321"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07h0qvp">
+          <text>"321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vktdpe">
+          <text>"Raum 321 mehrfach benötigt"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="franz_raumwahl1" name="Automatische Raumauswahl für Franz">
+    <extensionElements>
+      <biodi:bounds x="75" y="344" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="DecisionTable_1nep7gz" hitPolicy="FIRST">
+      <input id="InputClause_0wyarz2" label="Software">
+        <inputExpression id="LiteralExpression_0q0ozbk" typeRef="string">
+          <text>franz_software</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_10sdd7g">
+          <text>"franz_keineS","franz_Camunda","franz_NetBeans","franz_SemTalk","franz_Modelio"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1c5x9pu" label="Gruppengröße">
+        <inputExpression id="LiteralExpression_154flt4" typeRef="long">
+          <text>franz_gruppe</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1cb18cv" label="Wunschraum">
+        <inputExpression id="LiteralExpression_1ao6nmq" typeRef="string">
+          <text>franz_wunschraum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1jaowj2">
+          <text>"franz_106","franz_110","franz_223","franz_321","franz_keiner"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_0jtlo4r" label="Raum" name="franz_raum" typeRef="string">
+        <outputValues id="UnaryTests_1hqupcq">
+          <text>"223","321","110","106"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0nc4piy">
+        <inputEntry id="UnaryTests_0l8plxw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sqvoil">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03arnav">
+          <text>"franz_106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i8d48u">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ht2dfu">
+        <inputEntry id="UnaryTests_0h1x7x8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hlnxu9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d3spp8">
+          <text>"franz_110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1erwui5">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_004f75h">
+        <inputEntry id="UnaryTests_1tb24kk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rhy8zm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pgjcaz">
+          <text>"franz_223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_068ews0">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ywxyce">
+        <inputEntry id="UnaryTests_09ujklw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ol4tql">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yx6kas">
+          <text>"franz_321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0stcko7">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xuypx3">
+        <inputEntry id="UnaryTests_0r7ir5j">
+          <text>"franz_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m2iidq">
+          <text>&lt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_030o4pq">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lpswyj">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09mfui3">
+        <inputEntry id="UnaryTests_1sp1m1v">
+          <text>"franz_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mg3oh3">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pxw6dd">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_098frj4">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1c67ni8">
+        <inputEntry id="UnaryTests_0b4rqah">
+          <text>"franz_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nsocqp">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15perrs">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ifd4p0">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dhulhk">
+        <inputEntry id="UnaryTests_0pw0fgy">
+          <text>"franz_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yvnckb">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f7p34j">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tcskd0">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x82uhq">
+        <inputEntry id="UnaryTests_0s2l1di">
+          <text>"franz_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hy6m1j">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v4z4o3">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a8f9eo">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dsw9hd">
+        <inputEntry id="UnaryTests_0koe8a7">
+          <text>"franz_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zvo2hm">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qpvt1d">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ugp2xz">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pnzfya">
+        <inputEntry id="UnaryTests_017a2b8">
+          <text>"franz_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03w5g4w">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yeqkn5">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16o2py9">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1adf9kf">
+        <inputEntry id="UnaryTests_1hdbvn1">
+          <text>"franz_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11s0a2k">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ade95o">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04bjrba">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yd42gz">
+        <inputEntry id="UnaryTests_1gqrzkr">
+          <text>"franz_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ggx76d">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jiqe83">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07gzct6">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r6dkul">
+        <inputEntry id="UnaryTests_1io144o">
+          <text>"franz_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qwrgy5">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zilaa1">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r6hpp7">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kkcdm4">
+        <inputEntry id="UnaryTests_0hizdn2">
+          <text>"franz_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_199cy7j">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_055j4i0">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13kuuhl">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14ecxt9">
+        <inputEntry id="UnaryTests_0bqun62">
+          <text>"franz_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rphqig">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qyseq1">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sgsr1g">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v7o1yh">
+        <inputEntry id="UnaryTests_1lahro9">
+          <text>"franz_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hfjxii">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mcmu7n">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q3vj0j">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sl24zd">
+        <inputEntry id="UnaryTests_1ftmz7p">
+          <text>"franz_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1onqmh0">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e0zqb1">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14chbbi">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mxg2px">
+        <inputEntry id="UnaryTests_1uo3j83">
+          <text>"franz_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0denxxi">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n1mucb">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16g4nqs">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c8iyt6">
+        <inputEntry id="UnaryTests_0kdxn3e">
+          <text>"franz_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14efee4">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mroqgn">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jelzz2">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u62uhv">
+        <inputEntry id="UnaryTests_0s0t57e">
+          <text>"franz_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wadve4">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04se4aa">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14vnlrt">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09uxw57">
+        <inputEntry id="UnaryTests_1p3buuv">
+          <text>"franz_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dlhdv0">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_152ec4z">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1051e5b">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1airoba">
+        <inputEntry id="UnaryTests_03e83v6">
+          <text>"franz_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04nmmbz">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0py62h5">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pg0t2d">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rvshh9">
+        <inputEntry id="UnaryTests_03snsua">
+          <text>"franz_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y8mcwk">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09ymhir">
+          <text>"franz_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ny7ia7">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="meister_raumwahl1" name="Automatische Raumauswahl für Meister">
+    <extensionElements>
+      <biodi:bounds x="301" y="387" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="DecisionTable_0lovau8" hitPolicy="FIRST">
+      <input id="InputClause_0f56cto" label="Software">
+        <inputExpression id="LiteralExpression_1x1i6hw" typeRef="string">
+          <text>meister_software</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1y3a3z4">
+          <text>"meister_keineS","meister_Camunda","meister_NetBeans","meister_SemTalk","meister_Modelio"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1ygd546" label="Gruppengröße">
+        <inputExpression id="LiteralExpression_1sgxf9t" typeRef="long">
+          <text>meister_gruppe</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ef6rar" label="Wunschraum">
+        <inputExpression id="LiteralExpression_1pkcw8q" typeRef="string">
+          <text>meister_wunschraum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1ybajg0">
+          <text>"meister_keiner","meister_106","meister_110","meister_223","meister_321"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_01uvhnf" label="Raum" name="meister_raum" typeRef="string">
+        <outputValues id="UnaryTests_13j3rm7">
+          <text>"223","321","110","106","321"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_17lywwq">
+        <inputEntry id="UnaryTests_0x60312">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l4e455">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hqmutb">
+          <text>"meister_106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06o5cp6">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mhfvdp">
+        <inputEntry id="UnaryTests_15gbbv1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qfhl13">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0piulu9">
+          <text>"meister_110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19z0jv5">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08wd75i">
+        <inputEntry id="UnaryTests_0tfpwzd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hcir5q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ezpona">
+          <text>"meister_223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o5v05u">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mqnepa">
+        <inputEntry id="UnaryTests_1ed2y17">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_120pfpi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1spihz8">
+          <text>"meister_321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bcvjov">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qp90w5">
+        <inputEntry id="UnaryTests_09skgmo">
+          <text>"meister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06ijwlx">
+          <text>&lt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w91dii">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fk1j85">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0klis3r">
+        <inputEntry id="UnaryTests_1kybifd">
+          <text>"meister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ih5sm3">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xb0wp2">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zppsol">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ai75dv">
+        <inputEntry id="UnaryTests_14a1ic9">
+          <text>"meister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gqimy8">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00b31xd">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dq8p9d">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0syitwj">
+        <inputEntry id="UnaryTests_0dwn728">
+          <text>"meister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01x87em">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xhnqt2">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dehsmx">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1iva8dr">
+        <inputEntry id="UnaryTests_0yyvohg">
+          <text>"meister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ao2161">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14ixm3k">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ludpib">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17a2rdv">
+        <inputEntry id="UnaryTests_13zhjlc">
+          <text>"meister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nnoqqe">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02rwfj6">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04bthmu">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pkifec">
+        <inputEntry id="UnaryTests_1czq6ga">
+          <text>"meister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05kndq1">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02o779m">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rd5igz">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_016a25h">
+        <inputEntry id="UnaryTests_02ukcqa">
+          <text>"meister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iopiqc">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05ggfye">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v1i7yh">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0foxhaq">
+        <inputEntry id="UnaryTests_019fsli">
+          <text>"meister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pd5s9p">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u89vrd">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ntyr12">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0836fys">
+        <inputEntry id="UnaryTests_1t8k3ih">
+          <text>"meister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uwsh2r">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ksaz3w">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gl8ldz">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o65cm1">
+        <inputEntry id="UnaryTests_0d8tygz">
+          <text>"meister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1odd5y5">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13wg61w">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cchdpj">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ziy44b">
+        <inputEntry id="UnaryTests_1vc1dgw">
+          <text>"meister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lci9i1">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fjk6l1">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0er47py">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tvkg6c">
+        <inputEntry id="UnaryTests_04wqkik">
+          <text>"meister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_122qjif">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m0dcs5">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1oko2bb">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nstqqn">
+        <inputEntry id="UnaryTests_0t5wli4">
+          <text>"meister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ertaz">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0whykks">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i67wir">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_161vmwx">
+        <inputEntry id="UnaryTests_0hirr7p">
+          <text>"meister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yma65r">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uujuz5">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ut1zds">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1d833od">
+        <inputEntry id="UnaryTests_0chf9wl">
+          <text>"meister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06klmi2">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xdulfd">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1juj2m0">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hzpqps">
+        <inputEntry id="UnaryTests_12u3qvj">
+          <text>"meister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fbjjcy">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vfkdvx">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16au3um">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g501jb">
+        <inputEntry id="UnaryTests_1tran37">
+          <text>"meister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v949n5">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pbhjhy">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g4rp72">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07zjm78">
+        <inputEntry id="UnaryTests_1cdwr17">
+          <text>"meister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rhfynu">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ywgsdt">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h5dh1r">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ae2boo">
+        <inputEntry id="UnaryTests_175i4a8">
+          <text>"meister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gur1ck">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mng6li">
+          <text>"meister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h59atu">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="pfister_raumwahl1" name="Automatische Raumauswahl für Pfister">
+    <extensionElements>
+      <biodi:bounds x="525" y="408" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="DecisionTable_12yw34w" hitPolicy="FIRST">
+      <input id="InputClause_17epmhc" label="Software">
+        <inputExpression id="LiteralExpression_09zlqu8" typeRef="string">
+          <text>pfister_software</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0lzd37f">
+          <text>"pfister_keineS","pfister_Camunda","pfister_NetBeans","pfister_SemTalk","pfister_Modelio"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0sc5vcm" label="Gruppengröße">
+        <inputExpression id="LiteralExpression_0652qlj" typeRef="long">
+          <text>pfister_gruppe</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_100umjg" label="Wunschraum">
+        <inputExpression id="LiteralExpression_1x00stc" typeRef="string">
+          <text>pfister_wunschraum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0cxuahj">
+          <text>"pfister_106","pfister_110","pfister_223","pfister_321","pfister_keiner"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_1ymf34s" label="Raum" name="pfister_raum" typeRef="string">
+        <outputValues id="UnaryTests_1w4zy7h">
+          <text>"223","321","110","106"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0wcdei1">
+        <inputEntry id="UnaryTests_0sx1di4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p7krjt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l7t9e3">
+          <text>"pfister_106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ovvc1z">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04bfoma">
+        <inputEntry id="UnaryTests_08m29ii">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1su77t6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rmnkq8">
+          <text>"pfister_110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tc5qp2">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1osladi">
+        <inputEntry id="UnaryTests_1gsg6s3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07igzqk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yl6o5n">
+          <text>"pfister_223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lg8nsm">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0y4z119">
+        <inputEntry id="UnaryTests_0fe9na1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_014u3ue">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j8qskq">
+          <text>"pfister_321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1026ipd">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b0hmp2">
+        <inputEntry id="UnaryTests_0fqini7">
+          <text>"pfister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1472kee">
+          <text>&lt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ms6vlb">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12n6lo3">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rj8bvn">
+        <inputEntry id="UnaryTests_0dpycuf">
+          <text>"pfister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nrydyx">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t9rql8">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_087337a">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0d6pzl7">
+        <inputEntry id="UnaryTests_1vbc2qe">
+          <text>"pfister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rittc2">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zxz58f">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17hywuz">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ecki6c">
+        <inputEntry id="UnaryTests_1b5t0q7">
+          <text>"pfister_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xwpvmd">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l4l2pr">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gwxxz7">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v95651">
+        <inputEntry id="UnaryTests_1g7s9cg">
+          <text>"pfister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hlsfws">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gzk8r9">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y715xj">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0azhf9b">
+        <inputEntry id="UnaryTests_06itrgj">
+          <text>"pfister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10egv5g">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f36y7z">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07hn239">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0s73dtw">
+        <inputEntry id="UnaryTests_09mgq9e">
+          <text>"pfister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wm6ont">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mxsssr">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07yfnz8">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m9ff1y">
+        <inputEntry id="UnaryTests_15v7wjh">
+          <text>"pfister_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09ss3vt">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f8kybm">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z7xf37">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_011ypjl">
+        <inputEntry id="UnaryTests_1ji822a">
+          <text>"pfister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e0igc5">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eui7ww">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v9awom">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e3ko2f">
+        <inputEntry id="UnaryTests_0kvnv52">
+          <text>"pfister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u0qbnu">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19w9iq0">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06gjswu">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b2vapq">
+        <inputEntry id="UnaryTests_0rzcljc">
+          <text>"pfister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pu9tb0">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zxajs9">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e3vsvg">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j0zjg5">
+        <inputEntry id="UnaryTests_1eju25s">
+          <text>"pfister_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03rtjjd">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rtqr9w">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xt1bim">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ups9vc">
+        <inputEntry id="UnaryTests_095gnxq">
+          <text>"pfister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08sxihq">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jqwbsz">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_071szcs">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_060z009">
+        <inputEntry id="UnaryTests_02bpk8i">
+          <text>"pfister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rsc2px">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06f1g1f">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15u7ti2">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fuaeie">
+        <inputEntry id="UnaryTests_1ecrnhk">
+          <text>"pfister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vthjrj">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0arr52n">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xvmjhq">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1s32yt2">
+        <inputEntry id="UnaryTests_006f7wz">
+          <text>"pfister_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mzm9hz">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cuq67o">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1m48pqd">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1p3yyhq">
+        <inputEntry id="UnaryTests_1qya7pg">
+          <text>"pfister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09gjlhb">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kw1vl4">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0931guw">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nmd070">
+        <inputEntry id="UnaryTests_0owwt1h">
+          <text>"pfister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05vhq17">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m7u5nh">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mp89xx">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i0hl2a">
+        <inputEntry id="UnaryTests_1d02m6i">
+          <text>"pfister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ppq8r9">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xgjfu5">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15az5nc">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pk8r9f">
+        <inputEntry id="UnaryTests_0jcpaln">
+          <text>"pfister_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vb471o">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_082ohrc">
+          <text>"pfister_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07po4ds">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="scheeg_raumwahl1" name="Automatische Raumauswahl für Scheeg">
+    <extensionElements>
+      <biodi:bounds x="85" y="221" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="DecisionTable_0rr4fuy" hitPolicy="FIRST">
+      <input id="InputClause_0g6ad1o" label="Software">
+        <inputExpression id="LiteralExpression_1us4h9r" typeRef="string">
+          <text>scheeg_software</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_10hn6q3">
+          <text>"scheeg_keineS","scheeg_Camunda","scheeg_NetBeans","scheeg_SemTalk","scheeg_Modelio"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1a2hi21" label="Gruppengröße">
+        <inputExpression id="LiteralExpression_1l7yk4a" typeRef="long">
+          <text>scheeg_gruppe</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ab5xlg" label="Wunschraum">
+        <inputExpression id="LiteralExpression_0amb87g" typeRef="string">
+          <text>scheeg_wunschraum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1ngjg17">
+          <text>"scheeg_keiner","scheeg_106","scheeg_110","scheeg_223","scheeg_321"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_0fzo076" label="Raum" name="scheeg_raum" typeRef="string">
+        <outputValues id="UnaryTests_096orc5">
+          <text>"223","321","110","106"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1qw2y5h">
+        <inputEntry id="UnaryTests_1iwn1q3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pcfota">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c1pe01">
+          <text>"scheeg_106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j79io9">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13n83aw">
+        <inputEntry id="UnaryTests_09407j7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i3q8vs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t115x5">
+          <text>"scheeg_110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pzw2n8">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wuhn50">
+        <inputEntry id="UnaryTests_1p621ky">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x14479">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s1rhwp">
+          <text>"scheeg_223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s7o0n5">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0keg3pv">
+        <inputEntry id="UnaryTests_1t1c5hi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07a4wsi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_003vf71">
+          <text>"scheeg_321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cy698o">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t5rs5t">
+        <inputEntry id="UnaryTests_158svlv">
+          <text>"scheeg_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l70mci">
+          <text>&lt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z6oc9y">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1djrj80">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cm2bj8">
+        <inputEntry id="UnaryTests_1e46xmt">
+          <text>"scheeg_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17hu3w7">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18s3evi">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i3p3kz">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hhxe2y">
+        <inputEntry id="UnaryTests_096rlc5">
+          <text>"scheeg_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kixzoy">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0abqyz5">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05tiw48">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jokzjh">
+        <inputEntry id="UnaryTests_1caiywm">
+          <text>"scheeg_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_084f8zd">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1etbl69">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wm5n8i">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ka4lfw">
+        <inputEntry id="UnaryTests_12och1c">
+          <text>"scheeg_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mbtqbt">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jcx6du">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ql3h07">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09lq74s">
+        <inputEntry id="UnaryTests_13ewc0r">
+          <text>"scheeg_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mpd4wt">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wh96z8">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pyj7w7">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gqcklp">
+        <inputEntry id="UnaryTests_0zmf32i">
+          <text>"scheeg_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mllh9v">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17kk1db">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08cvnye">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e1xzgg">
+        <inputEntry id="UnaryTests_1dzsdqc">
+          <text>"scheeg_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w5si4m">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10m1f86">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d0p4u3">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_141etpu">
+        <inputEntry id="UnaryTests_0184uaa">
+          <text>"scheeg_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rsqwcd">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fekbq0">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0my1i6p">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0znvwnb">
+        <inputEntry id="UnaryTests_0nxshgh">
+          <text>"scheeg_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qwze3x">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v1cffn">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1m2igi9">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yq95t6">
+        <inputEntry id="UnaryTests_0h51zwp">
+          <text>"scheeg_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e36het">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pcc0lq">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zypbov">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eg5s2k">
+        <inputEntry id="UnaryTests_01krjmh">
+          <text>"scheeg_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mc5x6q">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bs4o9r">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1chofmg">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1k2o8eq">
+        <inputEntry id="UnaryTests_1hcbiqk">
+          <text>"scheeg_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1712vqy">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ua2puk">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02o62em">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uyn0un">
+        <inputEntry id="UnaryTests_10sgtyh">
+          <text>"scheeg_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vqdegs">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ifn98a">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0emzhe9">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kndpns">
+        <inputEntry id="UnaryTests_1ooqrhx">
+          <text>"scheeg_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_158ls84">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ibgqxv">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0oe4nw6">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_118pxtf">
+        <inputEntry id="UnaryTests_1571kes">
+          <text>"scheeg_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qzwvk2">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mq3rm5">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13b877s">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j73ksl">
+        <inputEntry id="UnaryTests_0fvad0n">
+          <text>"scheeg_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cpepp4">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t33f14">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qwawit">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1aygloz">
+        <inputEntry id="UnaryTests_10cm31g">
+          <text>"scheeg_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19oh3mq">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00t2dlo">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f2jojr">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ytrjf5">
+        <inputEntry id="UnaryTests_0jzx47z">
+          <text>"scheeg_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00e1txg">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15xiu40">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uq62vc">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fubdzs">
+        <inputEntry id="UnaryTests_0f1ls2n">
+          <text>"scheeg_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jpu0j1">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o6i3ug">
+          <text>"scheeg_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04o392c">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="wikarski_raumwahl1" name="Automatische Raumauswahl für Wikarski">
+    <extensionElements>
+      <biodi:bounds x="88" y="115" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="DecisionTable_0pvjhlz" hitPolicy="FIRST">
+      <input id="InputClause_0jetzzh" label="Software">
+        <inputExpression id="LiteralExpression_18qs5rf" typeRef="string">
+          <text>wikarski_software</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0f00qyp">
+          <text>"wikarski_keineS","wikarski_Camunda","wikarski_NetBeans","wikarski_SemTalk","wikarski_Modelio"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1genivl" label="Gruppengröße">
+        <inputExpression id="LiteralExpression_0nifdi4" typeRef="long">
+          <text>wikarski_gruppe</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02y43ch" label="Wunschraum">
+        <inputExpression id="LiteralExpression_0lt1cqv" typeRef="string">
+          <text>wikarski_wunschraum</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0ya91cc">
+          <text>"wikarski_keiner","wikarski_106","wikarski_110","wikarski_223","wikarski_321"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_0l79qbr" label="Raum" name="wikarski_raum" typeRef="string">
+        <outputValues id="UnaryTests_0ylzxza">
+          <text>"223","321","110","106"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0m44z8l">
+        <inputEntry id="UnaryTests_1n765bi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08pderc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oswfau">
+          <text>"wikarski_106"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dezq2z">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ovzx52">
+        <inputEntry id="UnaryTests_089bd8n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pchhlp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kvv7lo">
+          <text>"wikarski_110"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0spuohn">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mkdj1n">
+        <inputEntry id="UnaryTests_1el3xdb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0at4yk6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1funtlw">
+          <text>"wikarski_223"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0b89cv6">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mucx0e">
+        <inputEntry id="UnaryTests_1kzez0f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10xno08">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06yd42e">
+          <text>"wikarski_321"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10noilf">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1avi8ku">
+        <inputEntry id="UnaryTests_1o45pcn">
+          <text>"wikarski_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kliq4h">
+          <text>&lt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12am8ww">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19hcb4p">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sz6vfe">
+        <inputEntry id="UnaryTests_0gqftrl">
+          <text>"wikarski_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0416u9o">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m0ybeq">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mc31vp">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m2bqc6">
+        <inputEntry id="UnaryTests_0k57jbl">
+          <text>"wikarski_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y5dstp">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xbyynb">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nwg9ct">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02vc9jc">
+        <inputEntry id="UnaryTests_0bonzl5">
+          <text>"wikarski_keineS"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0afoz2m">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v42osd">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pfj6xb">
+          <text>"223"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v6iiii">
+        <inputEntry id="UnaryTests_1uqk6rk">
+          <text>"wikarski_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d7p8e4">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kmjnu9">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ce21jr">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1f849sf">
+        <inputEntry id="UnaryTests_0gdi9zp">
+          <text>"wikarski_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qh0sb6">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rsw5jy">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0efhjz9">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1q2mtmx">
+        <inputEntry id="UnaryTests_0351wql">
+          <text>"wikarski_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dcmvnt">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f6lqgi">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_008q6to">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cc2r0r">
+        <inputEntry id="UnaryTests_17bttev">
+          <text>"wikarski_Camunda"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rvbnpz">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09vnsnk">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i534pg">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vtnk6e">
+        <inputEntry id="UnaryTests_0f9orvz">
+          <text>"wikarski_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m5ashd">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12b1dex">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00wp4rn">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c66uo7">
+        <inputEntry id="UnaryTests_0vsol41">
+          <text>"wikarski_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fbqqz0">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17iwj5a">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qbhy6q">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12u2wgg">
+        <inputEntry id="UnaryTests_0zw3z3q">
+          <text>"wikarski_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ea06r2">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02skv3v">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xi8ryy">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sltvli">
+        <inputEntry id="UnaryTests_0ch9j5i">
+          <text>"wikarski_NetBeans"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jng2l5">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c3qek9">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02akphc">
+          <text>"110"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ki01nv">
+        <inputEntry id="UnaryTests_1bto9sy">
+          <text>"wikarski_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fub08i">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ouq62l">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zof5iv">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fgvaaj">
+        <inputEntry id="UnaryTests_156a4hf">
+          <text>"wikarski_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aa6njp">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n4jen9">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17s2g06">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w89ims">
+        <inputEntry id="UnaryTests_02y051v">
+          <text>"wikarski_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12j9xux">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zsa8pj">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d99xgr">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mzbmxf">
+        <inputEntry id="UnaryTests_1tdf1hf">
+          <text>"wikarski_SemTalk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xkdfem">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10uplfu">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rf8mm9">
+          <text>"106"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yljkql">
+        <inputEntry id="UnaryTests_1v60wkg">
+          <text>"wikarski_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m8xw7s">
+          <text>&lt;10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wdwciv">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l81237">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fp9swz">
+        <inputEntry id="UnaryTests_1v6o5ic">
+          <text>"wikarski_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03zbfff">
+          <text>[10..20]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07nx96e">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1apy4mo">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nblkp0">
+        <inputEntry id="UnaryTests_0ewyjf9">
+          <text>"wikarski_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jku6kk">
+          <text>[21..70]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eh357v">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0msds2d">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lb10v1">
+        <inputEntry id="UnaryTests_0zgy8cf">
+          <text>"wikarski_Modelio"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uwxdaa">
+          <text>&gt;= 71</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qzf2e1">
+          <text>"wikarski_keiner"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rcogv0">
+          <text>"321"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
