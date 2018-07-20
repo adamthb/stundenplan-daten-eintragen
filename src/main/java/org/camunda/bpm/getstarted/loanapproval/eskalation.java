@@ -10,20 +10,20 @@ import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
-public class reminder_franz implements JavaDelegate {
+public class eskalation implements JavaDelegate {
 
   // TODO: Set Mail Server Properties
   private static final String HOST = "smtp.gmail.com";
   private static final String USER = "demodemo1234512345@gmail.com";
   private static final String PWD = "google12345";
 
-  private final static Logger LOGGER = Logger.getLogger(reminder_franz.class.getName());
+  private final static Logger LOGGER = Logger.getLogger(eskalation.class.getName());
 
   public void execute(DelegateExecution execution) throws Exception {
 //      String var = (String) execution.getVariable("bezeichnung");  
       
       String recipient = "ddemosius@gmail.com" ;//emailadressvariable
-      String etext = "Sehr geehrter Herr Franz, \n\n Leider haben Sie ihre Verfügbarkeit und Raumwunsch für das kommende Semester noch nicht eingetragen, ich bitte Sie dies in den nächsten 7 Tagen zu erledigen .\n\n Mit freundlichen Gruessen, \n\n Demosius Demonasis";
+      String etext = "Sehr geehrtes Stundenplan-Team, \n\n Eine Professorin oder mehrere Professorinnen haben ihre Daten nicht eingetragen. \n\n Die kritische Deadline von 8 Wochen wurde überschritten.\n Bitte intervenieren Sie!\n\n Mit freundlichen Gruessen, \n\n Cockpit";
     //  String etext = "Sehr geehrte Damen und Herren, \n\n Ich wuerde gerne folgenden Artikel bestellen: " + var + ".\n\n Mit freundlichen Gruessen, \n\n Demo Demo";
       
       if (recipient != null){
@@ -35,8 +35,8 @@ public class reminder_franz implements JavaDelegate {
       email.setSSL(true);
       
       try {
-          email.setFrom("stundenplan-abteilung@th-brandenburg.de");
-          email.setSubject("Stundenplandaten eintragen! Reminder!!!");
+    	  email.setFrom("Stundenplan-Cockpit@th-brandenburg.de");
+          email.setSubject("Kritische Deadline überschritten");
           email.setMsg(etext);
 
           email.addTo(recipient);

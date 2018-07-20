@@ -34,7 +34,7 @@ public class stundenplan_email implements JavaDelegate {
       
       String recipient = "ddemosius@gmail.com" ;//emailadressvariable
       String etext = "Sehr geehrter Herr Stundenplan-Bearbeiter, \n\n  Ergebnisse aus Cockpit: \n\n Zeitkonflikt: "+ var1 +" \n\n Wunschfrei Herr Wikarski "+ var3 +" \n Wunschfrei Herr Franz "+ var4 +" \n Wunschfrei Frau Meister "+ var5 +" \n Wunschfrei Herr Pfister "+ var6 +" \n Wunschfrei Herr Scheeg "+ var7 +"  \n\n Raumkonflikt und zugewiesene Räume: "+ var2 +" \n\n Mit freundlichen Gruessen, \n\n Cockpit Interface";
-    //  String etext = "Sehr geehrte Damen und Herren, \n\n Ich wuerde gerne folgenden Artikel bestellen: " + var + ".\n\n Mit freundlichen Gruessen, \n\n Demo Demo";
+    
      
       if (recipient != null){
       Email email = new SimpleEmail();
